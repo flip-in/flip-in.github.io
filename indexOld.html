@@ -1,0 +1,93 @@
+<script>
+
+        function computerPlay(){  //randomly returns 'Rock', 'Paper', or 'Scissors'
+            
+            switch (Math.floor(Math.random()*3)) {
+                case 0:
+                return 'Rock';
+                break;
+                case 1:
+                return 'Paper';
+                break;
+                case 2:
+                return 'Scissors';
+                break;
+                default:
+                return 'not valid';
+                break;
+            }
+        }
+    
+        function userPlay(){
+            return prompt("Choose your weapon: Rock, Paper, Scissors");
+        }
+    
+        function playGame(playerSelection, computerSelection){
+            let winner = "";
+            playerSelection = playerSelection.toLowerCase();
+            playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+            if ((playerSelection === "Rock" && computerSelection === "Paper") || 
+                (playerSelection === "Scissors" && computerSelection === "Rock") || 
+                (playerSelection === "Paper" && computerSelection === "Scissors")){
+                    console.log( "You Lose! " + computerSelection + " beats " + playerSelection + ".");
+                    return 'lose';
+            }
+            else if ((playerSelection === "Rock" && computerSelection === "Scissors") || 
+                (playerSelection ==="Scissors" && computerSelection==="Paper") || 
+                (playerSelection==="Paper" && computerSelection==="Rock")){
+                    console.log("You Win! " + playerSelection + " beats " + computerSelection + ".");
+                    return 'win';
+            }
+            else if (playerSelection === computerSelection) {
+                console.log("You both chose " + playerSelection + ". Play again!");
+                return 'tie';
+            }
+            else{
+                return NaN;
+            }
+    
+        }
+    
+        //const playerSelection = computerPlay();
+        //const computerSelection = computerPlay();
+        //console.log("your choice is " + playerSelection + ".");
+        //console.log("the computer's choice is " + computerSelection + ".");
+        //console.log(playGame(playerSelection, computerSelection))
+    
+        function game(){
+            alert("Welcome to Paper, Rock, Scissors.");
+            let numRounds = parseInt(prompt("How many rounds would you like to play?", 5));
+            console.log("You chose to play " + numRounds + " rounds.");
+            let compScore = 0;
+            let userScore = 0;
+            
+            while(numRounds > 0){
+                let result = playGame(userPlay(), computerPlay());
+    
+                if(result == 'tie'){
+                    console.log("The current score is player: " + userScore +". computer: " + compScore + ".");
+                    continue;
+                }
+                else if(result == 'win'){
+                    userScore++
+                    console.log("The current score is player: " + userScore +". computer: " + compScore + ".");
+                    numRounds--;
+                }
+                else if(result == 'lose'){
+                    compScore++
+                    console.log("The current score is player: " + userScore +". computer: " + compScore + ".");
+                    numRounds--;
+                }
+                else{
+                    continue;
+                }
+               
+            }
+            console.log("Game over.");
+            console.log("The final score is:");
+            console.log("Player: " + userScore + ". Computer: " + compScore + ".");
+        }
+    
+        game();
+    </script>
+    
