@@ -29,6 +29,7 @@ const game = () => {
         const computerOptions = ['rock', 'paper', 'scissors'];
         
         options.forEach(options=>{
+
             options.addEventListener('click', function(){
                 // console.log(this);
                 //The Computer Choice
@@ -44,13 +45,18 @@ const game = () => {
                     playerHand.src = `./assets/${this.textContent}.png`
                     computerHand.src = `./assets/${computerChoice}.png`
                     options.style.color = "white";
+                    document.getElementById("rock-button").disabled=false;
+                    document.getElementById("paper-button").disabled=false;
+                    document.getElementById("scissors-button").disabled=false;
                 }, 2000)
 
                 //Shaking animation no delay
                 playerHand.style.animation = "shakePlayer 2s ease";
                 computerHand.style.animation = "shakeComputer 2s ease";
                 this.style.color = "red";
-                
+                document.getElementById("rock-button").disabled=true;
+                document.getElementById("paper-button").disabled=true;
+                document.getElementById("scissors-button").disabled=true;
                 
             });
 
