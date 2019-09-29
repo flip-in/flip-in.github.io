@@ -9,7 +9,7 @@
     </head>
     <body>
         <section class="game">
-            <div class="score">
+            <div class="score fadeOut">
                 <div class="player-score">
                     <h2>Player</h2>
                     <p>0</p>
@@ -22,7 +22,7 @@
 
             <div class="intro">
                 <h1>Rock, Paper, Scissors</h1>
-                <button>Let's Play!</button>
+                <button id="intro-button">Let's Play!</button>
             </div>
             <div class="match fadeOut">
                 <h2 class="winner">Choose an option</h2>
@@ -37,6 +37,18 @@
   
 
                 </div>
+            </div>
+            <div class="result fadeOut">
+                <h2 class="result">Final Score</h2>
+                    <div class="player-score">
+                        <h3>Player</h3>
+                        <p>0</p>
+                    </div>
+                    <div class="computer-score">
+                        <h3>Computer</h3>
+                        <p>0</p>
+                    </div>
+                <button>Play Again?</button>
             </div>
         </section>
         <script src="app.js"></script>
