@@ -6,7 +6,7 @@
 
 section {
     height: 100vh;
-    background-color: rgb(39, 41, 68)
+    background-color: rgba(5, 64, 112, 0.699)
 }
 
 .score {
@@ -35,38 +35,39 @@ section {
     align-items: center;
     justify-content: space-around;
     /* opacity: 0; */
-    transition: opacity 0.5s ease 0.2s;
+    transition: opacity 0.1s ease 0.2s;
 }
 
 .intro h1{
     font-size: 50px;
 }
 
-.intro button, .match button{
+.intro button, .match button, .result button{
     width: 150px;
     height: 50px;
     background: none;
     border: none;
     color: rgb(223, 223, 223);
     font-size: 20px;
-    background: rgb(45, 117, 96);
+    background: rgb(78, 187, 238);
     border-radius: 3px;
     cursor: pointer;
     /*box-shadow: 0 3px rgb(201, 201, 201);*/
     box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-button:hover{
-    background-color: #2f918c;
+button:hover, .selected{
+    background-color: rgba(11, 224, 213, 0.603);
     color: rgb(0, 0, 0);
 }
 
-button:active{
-    background-color: #2f918c;
+button:active, .selected{
+    background-color: rgba(5, 64, 112, 0.699);
     /*box-shadow: 0 3px rgb(201, 201, 201);*/
     box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    transform: translateY(4px);
+    transform: translateY(5px);
 }
+
 
 .match{
     position: absolute;
@@ -76,6 +77,33 @@ button:active{
     transition: opacity 0.5s ease 0.2s;
 
 }
+
+.result{
+    margin-top: -400px;
+    margin-bottom: 100px;
+    color: rgb(223, 223, 223);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    transition: opacity 2s ease 0.2s;
+}
+
+.result h1{
+    font-size: 60px;
+    transition: opacity 0s;
+}
+
+.result h2{
+    /* position: static; */
+    font-size: 50px;
+}
+
+.result button{
+    margin-top: 15px;
+}
+
 
 .winner{
     color: rgb(223, 223, 223);
@@ -95,6 +123,11 @@ button:active{
 
 div.fadeOut{
     opacity: 0;
+    pointer-events: none;
+}
+
+div.fadeOut h1{
+    opacity: 1;
     pointer-events: none;
 }
 
